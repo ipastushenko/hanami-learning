@@ -4,6 +4,6 @@ describe 'Visit home' do
   it 'is successful' do
     visit '/'
 
-    page.body.must_include('Hanami')
+    page.body.must_include('TODO\'s')
   end
 end

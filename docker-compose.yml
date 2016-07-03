@@ -4,10 +4,10 @@ ruby:
   volumes:
     - ./:/project
   ports:
-    - 3000:2300
+    - 2300:2300
   links:
     - postgres
-  command: bundle exec hanami server
+  command: bundle exec hanami server --host=0.0.0.0
 postgres:
   dockerfile: Dockerfile
   build: ./docker/postgres

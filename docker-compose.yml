@@ -1,0 +1,18 @@
+ruby:
+  dockerfile: ./docker/ruby/Dockerfile
+  build: .
+  volumes:
+    - ./:/project
+  ports:
+    - 3000:2300
+  links:
+    - postgres
+  command: bundle exec hanami server
+postgres:
+  dockerfile: Dockerfile
+  build: ./docker/postgres
+  volumes:
+    - data:/var/lib/postgresql/data
+  ports:
+    - 5432:5432
+  env_file: .env.pg
